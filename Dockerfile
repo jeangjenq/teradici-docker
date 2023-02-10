@@ -5,9 +5,8 @@ ARG uid
 ARG gid
 
 # Use the following two lines to install the Teradici repository package
-RUN apt-get update && apt-get install -y wget
-RUN wget -O teradici-repo-latest.deb https://downloads.teradici.com/ubuntu/teradici-repo-bionic-latest.deb
-RUN apt install ./teradici-repo-latest.deb && rm -f ./teradici-repo-latest.deb
+RUN apt-get update && apt-get install -y wget curl
+RUN curl -1sLf https://dl.teradici.com/DeAdBCiUYInHcSTy/pcoip-client/cfg/setup/bash.deb.sh | sh=ubuntu codename=bionic bash
 
 # Uncomment the following line to install Beta client builds from the internal repository
 #RUN echo "deb [arch=amd64] https://downloads.teradici.com/ubuntu bionic-beta non-free" > /etc/apt/sources.list.d/pcoip.list
