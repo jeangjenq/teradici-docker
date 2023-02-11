@@ -9,11 +9,11 @@ services:
         uid: ${uid}
         gid: ${gid}
     environment:
-      - DISPLAY
-      - LOGNAME
+      - XDG_RUNTIME_DIR=/tmp
+      - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
+      - QT_QPA_PLATFORM=wayland
     volumes:
-      - "/home/${LOGNAME}/.config/:/home/${LOGNAME}/.config/"
-      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/tmp/$WAYLAND_DISPLAY
     network_mode: host
     privileged: true
     cap_add:
