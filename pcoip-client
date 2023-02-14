@@ -11,5 +11,6 @@ docker run --rm \
 	-e LOGNAME="$LOGNAME" \
 	-v "${configdir}":"${configdir}" \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v /etc/localtime:/etc/localtime \
 	--network host \
 	pcoip-client
